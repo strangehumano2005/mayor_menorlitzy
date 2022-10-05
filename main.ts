@@ -1,38 +1,67 @@
-let n1 = 0
-let n2 = 0
-let n3 = 0
+let N1 = 0
+let N2 = 0
+let N3 = 0
 let MAYOR = 0
 let MEDIO = 0
 let MENOR = 0
 input.onButtonPressed(Button.A, function () {
-    if (n1 == 0 && n2 == 0) {
+    if (N1 == 0 && N2 == 0) {
         basic.showIcon(IconNames.No)
     } else {
-        if (n1 > n2 && n1 > n3) {
-            MAYOR = n1
-            if (n2 > n2) {
-                MEDIO = n2
-                MENOR = n3
+        if (N1 > N2 && N1 > N3) {
+            MAYOR = N1
+            if (N2 > N3) {
+                MEDIO = N2
+                MENOR = N3
             } else {
-                MEDIO = n3
-                MENOR = n2
+                MEDIO = N3
+                MENOR = N2
             }
         }
+        basic.showNumber(MAYOR)
+        basic.showNumber(MEDIO)
+        basic.showNumber(MENOR)
+    }
+    if (N2 > N1 && N2 > N3) {
+        MAYOR = N2
+        if (N1 > N3) {
+            MEDIO = N1
+            MENOR = N3
+        } else {
+            MEDIO = N3
+            MENOR = N1
+        }
+        basic.showNumber(MAYOR)
+        basic.showNumber(MEDIO)
+        basic.showNumber(MENOR)
+    }
+    if (N3 > N1 && N3 > N2) {
+        MAYOR = N3
+        if (N1 > N2) {
+            MEDIO = N1
+            MENOR = N2
+        } else {
+            MEDIO = N2
+            MENOR = N1
+        }
+        basic.showNumber(MAYOR)
+        basic.showNumber(MEDIO)
+        basic.showNumber(MENOR)
     }
 })
 input.onGesture(Gesture.Shake, function () {
-    n1 = randint(0, 9)
-    n2 = randint(0, 9)
-    n3 = randint(0, 9)
-    if (n1 != n2 && n1 != n3 && n2 != n3) {
+    N2 = randint(0, 9)
+    N2 = randint(0, 9)
+    N3 = randint(0, 9)
+    if (N1 != N2 && N1 != N3 && N2 != N3) {
         basic.showIcon(IconNames.Yes)
-        basic.showNumber(n1)
-        basic.showNumber(n2)
-        basic.showNumber(n3)
+        basic.showNumber(N1)
+        basic.showNumber(N2)
+        basic.showNumber(N3)
     } else {
         basic.showIcon(IconNames.No)
-        n1 = 0
-        n2 = 0
-        n3 = 0
+        N1 = 0
+        N2 = 0
+        N3 = 0
     }
 })
